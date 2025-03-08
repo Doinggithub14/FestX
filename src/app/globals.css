@@ -124,3 +124,33 @@
     @apply bg-background text-foreground;
   }
 }
+
+@theme {
+  --color-primary-500: #7b0ad2;
+  --color-secondary-500: #7b0ad2;
+  --color-tertiary-500: #7b0ad2;
+  --color-quaternery-500: #7b0ad2;
+}
+
+.gradient-text {
+  @apply text-transparent bg-gradient-to-r from-purple-500 via-pink-400 to-yellow-500 bg-clip-text;
+}
+
+.gradient-animation {
+  animation-name: gradient-animation;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
