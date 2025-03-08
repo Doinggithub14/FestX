@@ -121,7 +121,7 @@ pageschunks_over_min_token_len = df[df["chunk_token_count"] > min_token_length].
 
 # embedding our text chunks into database, or what i call it as the miracle space.
 from sentence_transformers import SentenceTransformer
-embedding_model = SentenceTransformer(model_name_or_path="all-mpnet-base-v2", device="cuda")
+embedding_model = SentenceTransformer(model_name_or_path="BAAI/bge-small-en-v1.5", device="cuda")
 
 for item in tqdm(pageschunks_over_min_token_len):
     item["embedding"] = embedding_model.encode(item["sentencechunk"])
