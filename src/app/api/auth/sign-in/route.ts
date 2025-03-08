@@ -43,8 +43,8 @@ export async function POST(request: Request) {
     }
 
     const token = jwt.sign(
-      { userId: user._id, email: user.email },
-      process.env.JWT_SECRET,
+      { userId: user._id, email: user.email, fullName: user.fullName },
+      process.env.JWT_SECRET!,
       { expiresIn: "7d" }
     );
 
@@ -56,7 +56,7 @@ export async function POST(request: Request) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       path: "/",
-      maxAge: 60 * 60 * 24 * 7, 
+      maxAge: 60 * 60 * 24 * 7,
     });
     return response;
   } catch (error) {
