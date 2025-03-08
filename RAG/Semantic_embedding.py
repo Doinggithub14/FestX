@@ -66,7 +66,7 @@ for item in tqdm(pagestexts):
 
 # chunking our sentences together. no 100% correct way, just experiment and then use what siuts best
 # can be done using textsplitters from langchain however here its done with pure python.
-num_sentence_chunk_size = 8
+num_sentence_chunk_size = 10
 
 def split_list(input_list: list[str], slice_size: int=num_sentence_chunk_size) -> list[list[str]]:
     return [input_list[i:i+slice_size] for i in range(0, len(input_list), slice_size)]
