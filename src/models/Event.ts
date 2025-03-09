@@ -13,6 +13,12 @@ export interface IEvent extends Document {
   registrations: {
     user: mongoose.Schema.Types.ObjectId;
     registeredAt: Date;
+    teamName?: string;
+    registrationDetails?: {
+      fullName: string;
+      email: string;
+      phoneNumber: string;
+    };
   }[];
 }
 
@@ -32,6 +38,12 @@ const EventSchema: Schema = new Schema(
         {
           user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
           registeredAt: { type: Date, default: Date.now },
+          teamName: { type: String, default: "" },
+          registrationDetails: {
+            fullName: { type: String },
+            email: { type: String },
+            phoneNumber: { type: String },
+          },
         },
       ],
       default: [],

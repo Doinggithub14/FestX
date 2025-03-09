@@ -17,6 +17,11 @@ export interface IUser extends Document {
   phoneNumber: number;
   participationHistory: ParticipationHistory[];
   role: "user" | "admin";
+  registrations: {
+    event: mongoose.Schema.Types.ObjectId;
+    registeredAt: Date;
+    teamName?: string;
+  }[];
 }
 
 const ParticipationHistorySchema: Schema = new Schema({
@@ -40,6 +45,16 @@ const UserSchema: Schema = new Schema(
       default: [],
     },
     role: { type: String, default: "user", enum: ["user", "admin"] },
+    registrations: {
+      type: [
+        {
+          event: { type: mongoose.Schema.Types.ObjectId, ref: "Event" },
+          registeredAt: { type: Date, default: Date.now },
+          teamName: { type: String, default: "" },
+        },
+      ],
+      default: [],
+    },
   },
   {
     timestamps: true,

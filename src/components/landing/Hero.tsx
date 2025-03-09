@@ -1,6 +1,7 @@
 import React from "react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -24,7 +25,9 @@ export default function Hero() {
             variant="default"
             className="mt-8 px-8 py-2 bg-primary text-white rounded-md"
           >
-            See all Events
+            <Link href={"/events"}>
+              See all Events
+            </Link>
           </Button>
         </div>
       </div>
