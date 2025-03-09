@@ -9,13 +9,17 @@ import Event from "@/models/Event";
 import Link from "next/link";
 
 interface PageProps {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] }; 
+  params: Promise<{ id: string }>;
+  searchParams: { [key: string]: string | string[] };
 }
 
-export default async function Page({ params, searchParams }: PageProps) {
+export default async function Page({
+  params: promiseParams,
+  searchParams,
+}: PageProps) {
+  const { id } = await promiseParams;
   await connectToDatabase();
-  const event = await Event.findById(params.id).lean();
+  const event = await Event.findById(id).lean();
 
   if (!event) {
     notFound();
