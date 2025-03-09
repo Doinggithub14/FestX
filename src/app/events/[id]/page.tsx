@@ -8,15 +8,12 @@ import { connectToDatabase } from "@/lib/mongodb";
 import Event from "@/models/Event";
 import Link from "next/link";
 
-interface EventPageProps {
+interface PageProps {
   params: { id: string };
-  searchParams: { [key: string]: string | string[] }; // Added missing property.
+  searchParams: { [key: string]: string | string[] }; 
 }
 
-export default async function EventPage({
-  params,
-  searchParams,
-}: EventPageProps) {
+export default async function Page({ params, searchParams }: PageProps) {
   await connectToDatabase();
   const event = await Event.findById(params.id).lean();
 
