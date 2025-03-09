@@ -12,8 +12,8 @@ const Events: FC<EventsProps> = ({ data }) => {
   const pathname = usePathname();
   const latestEventsData = data?.slice(0, 3);
   return (
-    <>
-      <section id="events" className="container w-full mt-[80px]">
+    <section className="w-full flex flex-col items-center justify-center">
+      <div id="events" className="container w-full mt-[80px]">
         <div className="text-center mb-8">
           {pathname && pathname === "/" ? (
             <h2 className="text-lg text-primary text-center mb-2 tracking-wider">
@@ -31,8 +31,8 @@ const Events: FC<EventsProps> = ({ data }) => {
             <EventCard events={pathname === "/" ? latestEventsData : data} />
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
