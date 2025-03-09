@@ -16,6 +16,7 @@ export interface IUser extends Document {
   enrollmentNumber: string;
   phoneNumber: number;
   participationHistory: ParticipationHistory[];
+  role: "user" | "admin";
 }
 
 const ParticipationHistorySchema: Schema = new Schema({
@@ -38,6 +39,7 @@ const UserSchema: Schema = new Schema(
       type: [ParticipationHistorySchema],
       default: [],
     },
+    role: { type: String, default: "user", enum: ["user", "admin"] },
   },
   {
     timestamps: true,

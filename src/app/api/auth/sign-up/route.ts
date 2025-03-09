@@ -52,6 +52,13 @@ export async function POST(request: Request) {
       .update(password)
       .digest("hex");
 
+    // Determine role based on environment variable
+    const adminEmail = process.env.ADMIN_EMAIL;
+    const role =
+      adminEmail && adminEmail.toLowerCase() === email.toLowerCase()
+        ? "admin"
+        : "user";
+
     const user = await User.create({
       fullName,
       email,
@@ -62,6 +69,7 @@ export async function POST(request: Request) {
       branch,
       enrollmentNumber,
       phoneNumber,
+      role, // assign role
     });
 
     if (!process.env.JWT_SECRET) {
@@ -69,7 +77,12 @@ export async function POST(request: Request) {
     }
 
     const token = jwt.sign(
-      { userId: user._id, email: user.email, fullName: user.fullName },
+      {
+        userId: user._id,
+        email: user.email,
+        fullName: user.fullName,
+        role: user.role,
+      },
       process.env.JWT_SECRET!,
       { expiresIn: "7d" }
     );

@@ -16,7 +16,6 @@ interface UserPayload {
 }
 
 export default async function DashboardPage() {
-  // Read token from cookies
   const cookieStore = cookies();
   const token = (await cookieStore).get("token")?.value;
 
@@ -30,7 +29,10 @@ export default async function DashboardPage() {
 
   let userPayload: UserPayload;
   try {
-    userPayload = jwt.verify(token, process.env.JWT_SECRET as string) as UserPayload;
+    userPayload = jwt.verify(
+      token,
+      process.env.JWT_SECRET as string
+    ) as UserPayload;
   } catch (error) {
     return (
       <div className="p-8">
@@ -53,7 +55,9 @@ export default async function DashboardPage() {
 
   // Sort participation history (newest first)
   const participationHistory = (user.participationHistory || []).sort(
-    (a: any, b: any) => new Date(b.participatedAt).getTime() - new Date(a.participatedAt).getTime()
+    (a: any, b: any) =>
+      new Date(b.participatedAt).getTime() -
+      new Date(a.participatedAt).getTime()
   );
 
   return (
@@ -98,8 +102,12 @@ export default async function DashboardPage() {
           <table className="min-w-full divide-y divide-gray-200 border">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">Event Name</th>
-                <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">Participated At</th>
+                <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">
+                  Event Name
+                </th>
+                <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">
+                  Participated At
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
