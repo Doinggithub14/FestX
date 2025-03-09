@@ -69,8 +69,8 @@ const EventCard: FC<EventCardProps> = ({ events }) => {
                 {description}
               </CardDescription>
             </div>
-            <Link href={`/events`} className="mt-auto">
-              <Button className="w-full mt-3">
+            <Link href={`/events/${id}`} className="mt-auto">
+              <Button className="w-full mt-3 cursor-pointer">
                 View Event <ChevronRight className="size-5 ml-2 opacity-80" />
               </Button>
             </Link>
