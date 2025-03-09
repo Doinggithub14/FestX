@@ -1,20 +1,36 @@
 # Fest X - Code Crushers
 
-Welcome to Fest X
-Your ultimate event management platform.
+Welcome to **Fest X**, your ultimate event management platform.
 
-
-To login as admin use the following credentials
-
-Email : admin@admin.com
-Password : admin
+![image](https://i.imgur.com/w0YPjZi.png)
 
 ---
 
-You can login to admin dashboard by visiting to `/admin`
-and can create an event!
+## Admin Login
 
-As a logged in user you can register for event and each event has
+Use the following credentials to log in as an admin:
+
+- **Email:** admin@admin.com  
+- **Password:** admin
+
+Access the Admin Dashboard at `/admin` to manage events and announcements.
+
+![admin](https://i.imgur.com/fdXp5TL.png)
+
+---
+
+## User Features
+
+- **Event Registration:** View a list of upcoming events and register easily.
+- **Dashboard:** Track your registered events at a glance.
+
+![img](https://i.imgur.com/CDb10i2.png)
+
+---
+
+## Event Details
+
+Events include the following details:
 
 ```
 Event Name
@@ -25,6 +41,8 @@ End Date of Registration
 Venue
 Event Date
 Time
-
 ```
-and register on it!
+
+Admins can view the registration count for each event in the dashboard.
+
+users can visit `/announcement` to see the latest announcement.
