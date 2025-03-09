@@ -40,8 +40,6 @@ export default async function DashboardPage() {
       </div>
     );
   }
-
-  // Connect to DB and fetch user data by userId
   await connectToDatabase();
   const user = await User.findOne({ _id: userPayload.userId }).lean();
 
@@ -53,7 +51,6 @@ export default async function DashboardPage() {
     );
   }
 
-  // Sort participation history (newest first)
   const participationHistory = (user.participationHistory || []).sort(
     (a: any, b: any) =>
       new Date(b.participatedAt).getTime() -

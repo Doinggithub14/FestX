@@ -32,7 +32,6 @@ export default function SignUpPage() {
     setError("");
     setLoading(true);
 
-    // Client-side validation: Ensure all fields are filled
     for (const key in formData) {
       if (!formData[key as keyof typeof formData]) {
         setError("Please fill in all fields.");
@@ -54,7 +53,6 @@ export default function SignUpPage() {
         setLoading(false);
         return;
       }
-      // Successful sign-up: redirect or update UI as needed
       router.push("/");
     } catch (err) {
       setError("Something went wrong");

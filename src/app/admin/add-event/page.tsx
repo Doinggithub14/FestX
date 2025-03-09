@@ -36,7 +36,6 @@ export default function AddEventPage() {
     setError("");
     setLoading(true);
 
-    // Validate that all fields are filled
     for (const key in formData) {
       if (!formData[key as keyof typeof formData]) {
         setError("Please fill in all fields.");
@@ -58,7 +57,6 @@ export default function AddEventPage() {
         setLoading(false);
         return;
       }
-      // On success, redirect to the admin dashboard
       router.push("/admin");
     } catch (err) {
       setError("Something went wrong");

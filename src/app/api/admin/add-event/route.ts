@@ -37,7 +37,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verify the admin token
     const token = request.cookies.get("token")?.value;
     if (!token) {
       return NextResponse.json({ error: "Not authorized" }, { status: 401 });
@@ -53,7 +52,6 @@ export async function POST(request: NextRequest) {
 
     await connectToDatabase();
 
-    // Create a new event (convert numeric and date fields appropriately)
     const newEvent = await Event.create({
       eventName,
       clubName,

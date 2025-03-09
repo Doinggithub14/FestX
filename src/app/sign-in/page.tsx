@@ -26,7 +26,6 @@ export default function SignInPage() {
     setError("");
     setLoading(true);
 
-    // Validate that both fields are provided
     if (!formData.email || !formData.password) {
       setError("Please fill in all fields.");
       setLoading(false);
@@ -46,7 +45,6 @@ export default function SignInPage() {
         setLoading(false);
         return;
       }
-      // Successful sign-in: redirect or update UI as needed
       router.push("/");
     } catch (err) {
       setError("Something went wrong");

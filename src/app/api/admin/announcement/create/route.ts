@@ -15,7 +15,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "All fields are required" }, { status: 400 });
     }
 
-    // Verify admin token
     const token = request.cookies.get("token")?.value;
     if (!token) {
       return NextResponse.json({ error: "Not authorized" }, { status: 401 });
