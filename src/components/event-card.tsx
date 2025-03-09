@@ -18,7 +18,6 @@ type EventCardProps = {
 };
 
 const EventCard: FC<EventCardProps> = ({ events }) => {
-  // Utility function to get the classes for event status badges
   const getStatusClasses = (status: TEvent["status"]) => {
     const baseClasses =
       "absolute w-fit top-3 right-3 z-10 px-4 py-0.5 border rounded-lg";
@@ -70,7 +69,7 @@ const EventCard: FC<EventCardProps> = ({ events }) => {
                 {description}
               </CardDescription>
             </div>
-            <Link href={`/events/${id}`} className="mt-auto">
+            <Link href={`/events`} className="mt-auto">
               <Button className="w-full mt-3">
                 View Event <ChevronRight className="size-5 ml-2 opacity-80" />
               </Button>

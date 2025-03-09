@@ -8,10 +8,9 @@ import { AnimatedNavigationTabs } from "../ui/animated-navigation-tabs";
 import { Button } from "../ui/button";
 
 const ITEMS = [
-  { id: 1, tile: "About" },
-  { id: 2, tile: "Events" },
-  { id: 5, tile: "Anouncements" },
-  { id: 3, tile: "See all events" },
+  { id: 1, tile: "About", href: "#about" },
+  { id: 2, tile: "Events", href: "/events" },
+  { id: 3, tile: "Announcements", href: "/announcement" },
 ];
 
 export default async function Navbar() {

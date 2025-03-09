@@ -2,8 +2,10 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 export function AnimatedNavigationTabs({ items }: AnimatedNavigationTabsProps) {
+  const router = useRouter();
   const [active, setActive] = useState<Props>(items[0]);
   const [isHover, setIsHover] = useState<Props | null>(null);
   return (
@@ -19,9 +21,13 @@ export function AnimatedNavigationTabs({ items }: AnimatedNavigationTabsProps) {
               )}
               onClick={() => {
                 setActive(item);
-                document
-                  .getElementById(`section-${item.id}`)
-                  ?.scrollIntoView({ behavior: "smooth" });
+                if (item.href) {
+                  router.push(item.href);
+                } else {
+                  document
+                    .getElementById(`section-${item.id}`)
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }
               }}
               onMouseEnter={() => setIsHover(item)}
               onMouseLeave={() => setIsHover(null)}
@@ -61,6 +67,7 @@ export function AnimatedNavigationTabs({ items }: AnimatedNavigationTabsProps) {
 type Props = {
   id: number;
   tile: string;
+  href?: string;
 };
 
 type AnimatedNavigationTabsProps = {
