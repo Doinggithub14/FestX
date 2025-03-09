@@ -10,14 +10,16 @@ import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ id: string }>;
-  searchParams: { [key: string]: string | string[] };
+  searchParams: Promise<{ [key: string]: string | string[] }>;
 }
 
 export default async function Page({
   params: promiseParams,
-  searchParams,
+  searchParams: promiseSearchParams,
 }: PageProps) {
   const { id } = await promiseParams;
+  const searchParams = await promiseSearchParams;
+
   await connectToDatabase();
   const event = await Event.findById(id).lean();
 
