@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fest X - Code Crushers
 
-## Getting Started
+Welcome to **Fest X**, your ultimate event management platform.
 
-First, run the development server:
+![image](https://i.imgur.com/w0YPjZi.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Admin Login
+
+Use the following credentials to log in as an admin:
+
+- **Email:** admin@admin.com  
+- **Password:** admin
+
+Access the Admin Dashboard at `/admin` to manage events and announcements.
+
+![admin](https://i.imgur.com/fdXp5TL.png)
+
+---
+
+## User Features
+
+- **Event Registration:** View a list of upcoming events and register easily.
+- **Dashboard:** Track your registered events at a glance.
+
+![img](https://i.imgur.com/CDb10i2.png)
+
+---
+
+## Event Details
+
+Events include the following details:
+
+```
+Event Name
+Description
+Club Name
+Registration Fee
+End Date of Registration
+Venue
+Event Date
+Time
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Admins can view the registration count for each event in the dashboard.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+users can visit `/announcement` to see the latest announcement.
