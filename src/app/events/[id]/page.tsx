@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -9,9 +10,13 @@ import Link from "next/link";
 
 interface EventPageProps {
   params: { id: string };
+  searchParams: { [key: string]: string | string[] }; // Added missing property.
 }
 
-export default async function EventPage({ params }: EventPageProps) {
+export default async function EventPage({
+  params,
+  searchParams,
+}: EventPageProps) {
   await connectToDatabase();
   const event = await Event.findById(params.id).lean();
 
