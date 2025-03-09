@@ -4,15 +4,13 @@ import numpy as np
 import pandas as pd
 
 
-embeddings_df_save_path = "text_chunks_and_embeddings_df.csv"
-text_chunks_and_embedding_df_load = pd.read_csv(embeddings_df_save_path)
-text_chunks_and_embedding_df_load.head()
+embeddings_df_save_path = ".\RAG\\text_chunks_and_embeddings_df.csv"
 
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Import texts and embedding df
-text_chunks_and_embedding_df = pd.read_csv("text_chunks_and_embeddings_df.csv")
+text_chunks_and_embedding_df = pd.read_csv(embeddings_df_save_path)
 
 # Convert embedding column back to np.array (it got converted to string when it got saved to CSV)
 text_chunks_and_embedding_df["embedding"] = text_chunks_and_embedding_df["embedding"].apply(lambda x: np.fromstring(x.strip("[]"), sep=" "))
@@ -115,16 +113,16 @@ def print_top_results_and_scores(query: str,
                                                   embeddings=embeddings,
                                                   n_resources_to_return=n_resources_to_return)
     
-    # print(f"Query: {query}\n")
-    # print("Results:")
+    print(f"Query: {query}\n")
+    print("Results:")
     # Loop through zipped together scores and indicies
-    # for score, index in zip(scores, indices):
-    #     print(f"Score: {score:.4f}")
-    #     # Print relevant sentence chunk (since the scores are in descending order, the most relevant chunk will be first)
-    #     print_wrapped(pages_and_chunks[index]["sentencechunk"])
-    #     # Print the page number too so we can reference the textbook further and check the results
-    #     print(f"Page number: {pages_and_chunks[index]['page_number']}")
-    #     print("\n")
+    for score, index in zip(scores, indices):
+        print(f"Score: {score:.4f}")
+        # Print relevant sentence chunk (since the scores are in descending order, the most relevant chunk will be first)
+        print_wrapped(pages_and_chunks[index]["sentencechunk"])
+        # Print the page number too so we can reference the textbook further and check the results
+        print(f"Page number: {pages_and_chunks[index]['page_number']}")
+        print("\n")
 
 query = "Turing machines"
 
