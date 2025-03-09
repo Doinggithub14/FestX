@@ -6,6 +6,7 @@ import { connectToDatabase } from "@/lib/mongodb";
 import User from "@/models/User";
 import Event from "@/models/Event";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 interface AdminPayload {
   userId: string;
@@ -58,7 +59,6 @@ export default async function AdminPage() {
     );
   }
 
-  // Fetch all created events
   const events = await Event.find({}).lean();
 
   return (
@@ -67,16 +67,13 @@ export default async function AdminPage() {
         <CardHeader>
           <CardTitle>Admin Dashboard</CardTitle>
         </CardHeader>
-        <CardContent>
-          <p>
-            <strong>Welcome,</strong> {user.fullName}
-          </p>
-          <p>
-            <strong>Email:</strong> {user.email}
-          </p>
-          <p>
-            <strong>Role:</strong> {user.role}
-          </p>
+        <CardContent className="space-x-4">
+          <Button variant={"default"} className="mb-4">
+            <a href="/admin/add-event">Create New Event</a>
+          </Button>
+          <Button variant={"default"} className="mb-4">
+            <a href="/admin/announcement/create">Create New Announcement</a>
+          </Button>
         </CardContent>
       </Card>
 

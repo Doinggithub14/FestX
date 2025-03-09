@@ -3,6 +3,7 @@ import mongoose, { Document, Model, Schema } from "mongoose";
 export interface IEvent extends Document {
   eventName: string;
   clubName: string;
+  category: string;
   registrationFee: number;
   image: string;
   description: string;
@@ -26,6 +27,7 @@ const EventSchema: Schema = new Schema(
   {
     eventName: { type: String, required: true },
     clubName: { type: String, required: true },
+    category: { type: String, required: true },
     registrationFee: { type: Number, required: true },
     image: { type: String, required: true },
     description: { type: String, required: true },

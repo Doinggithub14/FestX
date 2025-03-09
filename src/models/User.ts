@@ -21,6 +21,11 @@ export interface IUser extends Document {
     event: mongoose.Schema.Types.ObjectId;
     registeredAt: Date;
     teamName?: string;
+    registrationDetails?: {
+      fullName: string;
+      email: string;
+      phoneNumber: string;
+    };
   }[];
 }
 
@@ -51,6 +56,11 @@ const UserSchema: Schema = new Schema(
           event: { type: mongoose.Schema.Types.ObjectId, ref: "Event" },
           registeredAt: { type: Date, default: Date.now },
           teamName: { type: String, default: "" },
+          registrationDetails: {
+            fullName: { type: String },
+            email: { type: String },
+            phoneNumber: { type: String },
+          },
         },
       ],
       default: [],

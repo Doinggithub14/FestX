@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed": "tsc --project tsconfig.seed.json && node dist/seed.js"
   },
   "dependencies": {
     "@motionone/utils": "^10.18.0",
@@ -20,6 +21,7 @@
     "clsx": "^2.1.1",
     "cobe": "^0.6.3",
     "date-fns": "^4.1.0",
+    "dotenv": "^16.4.7",
     "framer-motion": "^12.4.10",
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
