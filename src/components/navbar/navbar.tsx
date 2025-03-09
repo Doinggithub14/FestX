@@ -32,7 +32,9 @@ export default async function Navbar() {
 
   return (
     <div className="w-full flex items-center justify-between border-b px-8 py-4">
-      <img src="/logo.png" alt="Logo" className="object-contain h-8 w-auto" />
+      <Link href={"/"}>
+        <img src="/logo.png" alt="Logo" className="object-contain h-8 w-auto" />
+      </Link>
       <AnimatedNavigationTabs items={ITEMS} />
       <div className="flex space-x-2">
         {user ? (
